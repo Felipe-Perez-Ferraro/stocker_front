@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { userSignUp } from '../redux/usersSlice/usersSlice';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(userSignUp({ name, password }));
-    navigate('/login')
+    navigate('/login');
   };
 
   return (

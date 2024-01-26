@@ -12,7 +12,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await dispatch(userLogIn({ name, password }));
-    navigate('/')
+    navigate('/');
   };
 
   return (

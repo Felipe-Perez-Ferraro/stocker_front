@@ -1,4 +1,6 @@
+import AddProduct from './components/AddProduct';
 import Navbar from './components/Navbar';
+import UpdateProduct from './components/UpdateProduct';
 
 const { createBrowserRouter } = require('react-router-dom');
 const { default: Home } = require('./components/Home');
@@ -30,6 +32,24 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <Login />
+      </>
+    ),
+  },
+  {
+    path: 'add-product',
+    element: (
+      <>
+        <Navbar />
+        <AddProduct />
+      </>
+    ),
+  },
+  {
+    path: 'update-product',
+    element: (
+      <>
+        <Navbar />
+        <UpdateProduct />
       </>
     ),
   },
