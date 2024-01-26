@@ -13,7 +13,7 @@ function Navbar() {
 
   return (
     <header className="bg-orange-500">
-      <nav className="h-20 flex items-center justify-between max-w-lg md:max-w-5xl mx-auto">
+      <nav className="h-20 flex items-center justify-between max-w-2xl lg:max-w-5xl mx-auto">
         <h2 className="font-black text-slate-50 text-xl">
           <Link to="/">STOCKER</Link>
         </h2>
