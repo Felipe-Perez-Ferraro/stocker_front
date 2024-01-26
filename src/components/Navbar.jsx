@@ -24,7 +24,11 @@ function Navbar() {
             </li>
             <span className="font-semibold text-slate-50">|</span>
             <li>
-              <button type="button" className="font-semibold text-slate-50" onClick={handleClick}>
+              <button
+                type="button"
+                className="font-semibold text-slate-50"
+                onClick={handleClick}
+              >
                 Logout
               </button>
             </li>

@@ -25,7 +25,7 @@ function Products() {
   };
 
   const handleOpen = (id) => {
-    setProdId(id)
+    setProdId(id);
     setOpen(true);
   };
 
