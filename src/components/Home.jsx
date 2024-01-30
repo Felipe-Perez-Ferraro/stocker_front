@@ -9,7 +9,7 @@ function Home() {
     <main>
       <p className="text-sm text-center">{message}</p>
       <section className="mt-8">
-        <article className="max-w-2xl lg:max-w-5xl mx-auto">
+        <article className="flex flex-col gap-2 max-w-2xl lg:max-w-5xl mx-auto">
           <Products />
         </article>
       </section>
