@@ -57,12 +57,12 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
-export const filterByCategory = createAsyncThunk(
-  'products/filterByCategory',
-  async ({ category, label, price }) => {
+export const filterProducts = createAsyncThunk(
+  'products/filterProducts',
+  async ({ category, label, price, added }) => {
     try {
       const response = await axios.get(
-        `${URL}?category=${category}&label=${label}&price=${price}`
+        `${URL}?category=${category}&label=${label}&price=${price}&created_at=${added}`
       );
       return response.data.data;
     } catch (error) {
@@ -97,7 +97,7 @@ const productsSlice = createSlice({
         prod.id === updatedProduct.id ? updatedProduct : prod
       );
     });
-    builder.addCase(filterByCategory.fulfilled, (state, action) => {
+    builder.addCase(filterProducts.fulfilled, (state, action) => {
       state.products = action.payload;
     });
   },

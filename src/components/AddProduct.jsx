@@ -9,6 +9,7 @@ function AddProduct() {
   const [sku, setSku] = useState('');
   const [name, setName] = useState('');
   const [category, setCategory] = useState('Smartphones');
+  const [brand, setBrand] = useState('');
   const [label, setLabel] = useState('New');
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
@@ -22,6 +23,7 @@ function AddProduct() {
         sku,
         name,
         category,
+        brand,
         label,
         quantity,
         price,
@@ -44,58 +46,87 @@ function AddProduct() {
           Add Product
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <input
-            type="text"
-            value={sku}
-            onChange={(e) => setSku(e.target.value)}
-            placeholder="SKU"
-            className="border border-slate-900 rounded p-1 outline-none"
-          />
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Product"
-            required
-            className="border border-slate-900 rounded p-1 outline-none"
-          />
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="border border-slate-900 rounded p-1 outline-none"
-          >
-            <option disabled>- Select Category -</option>
-            {categories.map((cat) => (
-              <option key={cat.id} value={cat.category}>
-                {cat.category}
-              </option>
-            ))}
-          </select>
-          <select
-            value={label}
-            onChange={(e) => setLabel(e.target.value)}
-            className="border border-slate-900 rounded p-1 outline-none"
-          >
-            <option disabled>- Select Label -</option>
-            <option value="New">New</option>
-            <option value="Used">Used</option>
-          </select>
-          <input
-            type="number"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-            placeholder="Quantity"
-            required
-            className="border border-slate-900 rounded p-1 outline-none"
-          />
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Price"
-            required
-            className="border border-slate-900 rounded p-1 outline-none"
-          />
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">SKU:</label>
+            <input
+              type="text"
+              value={sku}
+              onChange={(e) => setSku(e.target.value)}
+              placeholder="SKU"
+              className="border border-slate-900 rounded p-1 outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Product:</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Product"
+              required
+              className="border border-slate-900 rounded p-1 outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Category:</label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="border border-slate-900 rounded p-1 outline-none"
+            >
+              <option disabled>- Select Category -</option>
+              {categories.map((cat) => (
+                <option key={cat.id} value={cat.category}>
+                  {cat.category}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Brand:</label>
+            <input
+              type="text"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
+              placeholder="Brand"
+              required
+              className="border border-slate-900 rounded p-1 outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Label:</label>
+            <select
+              value={label}
+              onChange={(e) => setLabel(e.target.value)}
+              className="border border-slate-900 rounded p-1 outline-none"
+            >
+              <option disabled>- Select Label -</option>
+              <option value="New">New</option>
+              <option value="Used">Used</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Quantity:</label>
+            <input
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              placeholder="Quantity"
+              required
+              className="border border-slate-900 rounded p-1 outline-none"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="text-lg font-bold">Price:</label>
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Price"
+              required
+              className="border border-slate-900 rounded p-1 outline-none"
+            />
+          </div>
           <div className="flex justify-center">
             <button
               type="submit"
