@@ -36,7 +36,10 @@ function Signup() {
             placeholder="Password"
             required
           />
-          <button type="submit" className="bg-lime-500 p-1 rounded font-bold text-slate-50">
+          <button
+            type="submit"
+            className="bg-lime-500 p-1 rounded font-bold text-slate-50"
+          >
             Log in
           </button>
         </form>
