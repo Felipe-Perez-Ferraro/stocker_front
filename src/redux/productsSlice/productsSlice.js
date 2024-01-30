@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const URL = 'http://127.0.0.1:3000/api/v1/products';
+
 const initialState = {
   products: [],
   error: null,
@@ -11,7 +13,7 @@ export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
     try {
-      const response = await axios.get('http://127.0.0.1:3000/api/v1/products');
+      const response = await axios.get(URL);
       return response.data.data;
     } catch (error) {
       throw new Error(error.message);
@@ -23,10 +25,7 @@ export const createProduct = createAsyncThunk(
   'products/createProduct',
   async (prod, thunkAPI) => {
     try {
-      const response = await axios.post(
-        'http://127.0.0.1:3000/api/v1/products',
-        prod
-      );
+      const response = await axios.post(URL, prod);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -38,9 +37,7 @@ export const deleteProduct = createAsyncThunk(
   'products/deleteProduct',
   async (productId, thunkAPI) => {
     try {
-      const response = await axios.delete(
-        `http://127.0.0.1:3000/api/v1/products/${productId}`
-      );
+      const response = await axios.delete(`${URL}/${productId}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -52,13 +49,25 @@ export const updateProduct = createAsyncThunk(
   'products/updateProduct',
   async ({ productId, updatedProduct }, thunkAPI) => {
     try {
-      const response = await axios.put(
-        `http://127.0.0.1:3000/api/v1/products/${productId}`,
-        updatedProduct
-      );
+      const response = await axios.put(`${URL}/${productId}`, updatedProduct);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const filterByCategory = createAsyncThunk(
+  'products/filterByCategory',
+  async ({ category, label, price }) => {
+    try {
+      const response = await axios.get(
+        `${URL}?category=${category}&label=${label}&price=${price}`
+      );
+      return response.data.data;
+    } catch (error) {
+      console.error('Error filtering products:', error.message);
+      throw new Error(error.message);
     }
   }
 );
@@ -87,6 +96,9 @@ const productsSlice = createSlice({
       state.products = state.products.map((prod) =>
         prod.id === updatedProduct.id ? updatedProduct : prod
       );
+    });
+    builder.addCase(filterByCategory.fulfilled, (state, action) => {
+      state.products = action.payload;
     });
   },
 });

@@ -3,12 +3,13 @@ import Comeback from './Comeback';
 import { useDispatch } from 'react-redux';
 import { createProduct } from '../redux/productsSlice/productsSlice';
 import { useNavigate } from 'react-router';
+import categories from '../categories';
 
 function AddProduct() {
   const [sku, setSku] = useState('');
   const [name, setName] = useState('');
-  const [category, setCategory] = useState('');
-  const [label, setLabel] = useState('');
+  const [category, setCategory] = useState('Smartphones');
+  const [label, setLabel] = useState('New');
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const dispatch = useDispatch();
@@ -58,21 +59,27 @@ function AddProduct() {
             required
             className="border border-slate-900 rounded p-1 outline-none"
           />
-          <input
-            type="text"
+          <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            placeholder="Category"
-            required
             className="border border-slate-900 rounded p-1 outline-none"
-          />
-          <input
-            type="text"
+          >
+            <option disabled>- Select Category -</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.category}>
+                {cat.category}
+              </option>
+            ))}
+          </select>
+          <select
             value={label}
             onChange={(e) => setLabel(e.target.value)}
-            placeholder="Label"
             className="border border-slate-900 rounded p-1 outline-none"
-          />
+          >
+            <option disabled>- Select Label -</option>
+            <option value="New">New</option>
+            <option value="Used">Used</option>
+          </select>
           <input
             type="number"
             value={quantity}

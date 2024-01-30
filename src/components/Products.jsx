@@ -7,6 +7,7 @@ import {
 } from '../redux/productsSlice/productsSlice';
 import { Link } from 'react-router-dom';
 import UpdateProduct from './UpdateProduct';
+import Filters from './Filters';
 
 function Products() {
   const dispatch = useDispatch();
@@ -19,8 +20,8 @@ function Products() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  const handleClick = (id) => {
-    dispatch(deleteProduct(id));
+  const handleClick = async (id) => {
+    await dispatch(deleteProduct(id));
     dispatch(fetchProducts());
   };
 
@@ -58,6 +59,7 @@ function Products() {
               Add Product
             </button>
           )}
+          <Filters />
           <table className="table-auto w-full">
             <thead className="border border-slate-900">
               <tr>
