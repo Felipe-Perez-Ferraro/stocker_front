@@ -15,7 +15,7 @@
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
   - [🚀 Back End Part ](#-back-end-part-)
-  - [🚀 Video Presentation ](#videoPresentation)
+  - [🚀 Video Presentation ](#-video-presentation-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
@@ -91,7 +91,7 @@ Link to the [Back End Repository](https://github.com/Felipe-Perez-Ferraro/stocke
 
 <!-- VIDEO PRESENTATION -->
 
-## 🚀 Project Presentation <a name="videoPresentation"></a>
+## 🚀 Project Presentation <a name="video-resentation"></a>
 [Video Presentation](https://www.loom.com/share/e64c0c85ab954b91891febbaa79d29b6?sid=81ff34d7-7916-4119-bcfa-012e962d2a86)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
