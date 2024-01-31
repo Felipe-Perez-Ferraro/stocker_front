@@ -91,7 +91,7 @@ Link to the [Back End Repository](https://github.com/Felipe-Perez-Ferraro/stocke
 
 <!-- VIDEO PRESENTATION -->
 
-## 🚀 Project Presentation <a name="video-resentation"></a>
+## 🚀 Project Presentation <a name="video-presentation"></a>
 [Video Presentation](https://www.loom.com/share/e64c0c85ab954b91891febbaa79d29b6?sid=81ff34d7-7916-4119-bcfa-012e962d2a86)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
